@@ -2,10 +2,18 @@
 Debug Test and Restart Over Again.
 Every Liitle Thing You Do Is Your Own Leverage In Future. 
 
-# Three-Way Handshakes.
+## Three-Way Handshakes in TCP communication. 
 The Detail of Three-Way Handshakes on Connection-Estiblishing in Transport-Control-Protocol
 
 ![](./src/structuremap.png)
+
+## Easy FTP-Server Decision for R&D. 
+Be very careful that the default value of the max-connections of SimpleHttpServer is 5 on Linux. That's why you'd better setup an Apache-Server instead of SimpleHttpServer as an FTP-Server in LAN, because the default max_conns of Apache-Server is 100 on Linux.
+
+```
+ss -lnt | grep -i your_simple_http_server_port  // default max_conn is 5 on linux
+ss -lnt | grep -i your_apache_http_server_port  // default max_conn is 100 on linux
+```
 
 
 
