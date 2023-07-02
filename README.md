@@ -1,4 +1,4 @@
-# networks
+# Networks
 Debug Test and Restart Over Again.
 Every Liitle Thing You Do Is Your Own Leverage In Future. 
 
@@ -44,3 +44,25 @@ SYN-Queue MaxSize = 256
 */
 
 ```
+
+
+## Validation Get Started.
+I'm testing on the SimpleHttpServer of Python3 on Fedora37 Xfce4-Desktop(Kernel-6.3.8), so I'll compare with [the source codes of Linux-Kernel v6.3 on github](https://github.dev/torvalds/linux/tree/v6.3).
+
+### 1. Standard Three-Way-Handshakes.
+
++ `ss -lnt` && `ss -nt`
+![TCP_Core_Status on source codes](./src/tests/kernel-sourcecodes.png)
+
++ Condition of AcceptQueue_Is_Full.
+![TCP_Accept_Queue_Is_Full](./src/tests/condition_of_accept_queue_is_full.png)
+
++ Launch a SimpleHttpServer from local host port based on 9999, and run concurrent requests via Jmeter.
+1. Prepare for the testing environment.
+![Prepare for the test environment](./src/tests/environment_ready.png)
+2. Prepare for the Jmeter for concurrent invoking APIs.
+![Prepare for the Jmeter for concurrent requests](./src/tests/jmeter_ready.png)
+3. Monitor the logs.
+![Result](./src/tests/overflow_result_1.png)
+4. Reset configuration in kernel. 
+![Connection_Reset_config_in_kernel](./src/tests/Reset_condition.png)
